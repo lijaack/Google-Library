@@ -1,0 +1,70 @@
+.navbar {
+    width: 100%;
+    font-size: 5rem;
+    text-decoration: none;
+    list-style: none;
+    color: $color-dark;
+    background-color: $color-lightWarm;
+    overflow: hidden;
+    font-family: $font-serif;
+    margin-bottom: .5em;
+    border-radius: 20px;
+    box-shadow: 5px 10px 8px $color-neutral-darker;
+   
+    
+    
+      &__brand{
+    font-family: $font-serif;
+    color: $color-dark;
+    text-decoration: none;
+    float: left;
+    padding: 1em 1em;
+    border-right: solid 2px $color-dark;
+    @include responsive(t-view){
+      text-align: center;
+      border-right: none;
+    }
+
+      }
+      &__brand:hover{
+        color: $color-bright;
+        @include responsive(t-view){
+          // background-color: $color-lightWarm;
+        }
+
+      }
+      &__brand:active{
+        color: $color-bright;
+        @include responsive(t-view){
+          // background-color: $color-lightWarm;
+          color: $color-bright;
+        }
+
+      }
+      &__nav{
+          float: right;
+          list-style: none;
+          text-decoration: none;
+          color: $color-dark;
+          padding: 1em 1em;
+        &--item{
+            color: $color-dark;
+            padding: 1em 1em;
+            cursor: pointer;
+        }
+        &--item:hover{
+            color: $color-bright;
+            cursor: pointer;
+            @include responsive(t-view){
+              // background-color: $color-lightCool-darker;
+            }
+        }
+        &--item:active{
+            color: $color-bright;
+            cursor: pointer;
+            @include responsive(t-view){
+              // background-color: $color-lightCool-darkest;
+            }
+        } 
+      }
+}

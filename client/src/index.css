@@ -1,0 +1,281 @@
+body {
+  margin: 0;
+  padding: 2em;
+  background-color: #2c3531; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 52.5em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 37.5%; } }
+  @media only screen and (max-width: 33em) {
+    html {
+      font-size: 29%; } }
+  @media only screen and (max-width: 25.5em) {
+    html {
+      font-size: 20%; } }
+
+a {
+  text-decoration: none;
+  outline: none; }
+
+a:link {
+  /* Applies to all unvisited links */
+  text-decoration: none;
+  outline: none; }
+
+a:visited {
+  /* Applies to all visited links */
+  text-decoration: none;
+  outline: none; }
+
+a:hover {
+  /* Applies to links under the pointer */
+  text-decoration: none;
+  outline: none; }
+
+a:active {
+  /* Applies to activated links */
+  text-decoration: none;
+  outline: none; }
+
+.delete-btn {
+  float: right;
+  color: #e74944; }
+
+.footer {
+  margin-top: 2em;
+  background-color: #d9b08c;
+  border-radius: 20px;
+  box-shadow: 5px 10px 8px #826953; }
+  .footer__span {
+    font-size: 2em;
+    font-family: serif;
+    color: #2c3531;
+    text-align: center;
+    padding: 2em; }
+
+.jumbotron {
+  margin-top: 1em;
+  text-align: center;
+  background-image: radial-gradient(#c1e8e2, #77a39c);
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+  color: #2c3531;
+  overflow: hidden;
+  margin-bottom: 1em;
+  border-radius: 20px;
+  box-shadow: 5px 10px 8px #116466; }
+  .jumbotron__heading {
+    font-family: "Special Elite", cursive;
+    font-size: 6rem; }
+  .jumbotron__subheading {
+    font-family: "Shadows Into Light Two", cursive;
+    font-size: 5rem;
+    color: #826953; }
+
+.list-overflow-container {
+  max-height: 80em;
+  border: 2px #77a39c solid;
+  border-radius: 20px;
+  padding: 1em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-top: 2em;
+  background-color: #705a47;
+  box-shadow: inset 0px 0px 15px #2c3531; }
+
+.list-overflow-container ul {
+  margin: 1em;
+  list-style: none; }
+
+.list-overflow-container li {
+  border: 2px #ffcb9a solid;
+  border-radius: 20px;
+  margin: 1em;
+  padding: 2em;
+  overflow: auto;
+  background-color: #826953;
+  box-shadow: 5px 10px 8px #2c3531; }
+
+.list-overflow-container li * {
+  cursor: pointer; }
+
+.list-overflow-container li a {
+  /* Make it look like a button */
+  font-size: 4em;
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  padding: 0em 1em;
+  border-radius: 20px;
+  background-color: #116466;
+  color: #ffcb9a;
+  border: solid 2px #2c3531;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 8px #2c3531; }
+
+.list-overflow-container li a:hover {
+  background-color: #ffcb9a;
+  color: #116466; }
+
+.list-overflow-container li a:active {
+  background-color: #ffcb9a;
+  color: #116466;
+  transform: translateY(4px); }
+
+.book-image {
+  float: right;
+  border-radius: 20px;
+  border: solid 2px #2c3531;
+  box-shadow: 5px 5px 8px #2c3531; }
+
+.list-overflow-container li:first-child {
+  /* border-top: none; */ }
+
+.list-overflow-container li:last-child {
+  /* border-bottom: none; */ }
+
+.list-button {
+  font-size: 4em;
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  padding: 0em 1em;
+  border-radius: 20px;
+  background-color: #116466;
+  color: #ffcb9a;
+  border: solid 2px #2c3531;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 8px #2c3531; }
+
+.list-author {
+  font-size: 2em;
+  font-family: "Raleway", sans-serif;
+  color: #c1e8e2; }
+
+.list-publish {
+  font-size: 2em;
+  font-family: "Raleway", sans-serif;
+  color: #c1e8e2; }
+
+.list-description {
+  font-size: 2em;
+  font-family: "Raleway", sans-serif;
+  color: #c1e8e2; }
+
+.navbar {
+  width: 100%;
+  font-size: 5rem;
+  text-decoration: none;
+  list-style: none;
+  color: #2c3531;
+  background-color: #ffcb9a;
+  overflow: hidden;
+  font-family: "Special Elite", cursive;
+  margin-bottom: .5em;
+  border-radius: 20px;
+  box-shadow: 5px 10px 8px #826953; }
+  .navbar__brand {
+    font-family: "Special Elite", cursive;
+    color: #2c3531;
+    text-decoration: none;
+    float: left;
+    padding: 1em 1em;
+    border-right: solid 2px #2c3531; }
+    @media only screen and (max-width: 93em) {
+      .navbar__brand {
+        text-align: center;
+        border-right: none; } }
+  .navbar__brand:hover {
+    color: #116466; }
+  .navbar__brand:active {
+    color: #116466; }
+    @media only screen and (max-width: 93em) {
+      .navbar__brand:active {
+        color: #116466; } }
+  .navbar__nav {
+    float: right;
+    list-style: none;
+    text-decoration: none;
+    color: #2c3531;
+    padding: 1em 1em; }
+    .navbar__nav--item {
+      color: #2c3531;
+      padding: 1em 1em;
+      cursor: pointer; }
+    .navbar__nav--item:hover {
+      color: #116466;
+      cursor: pointer; }
+    .navbar__nav--item:active {
+      color: #116466;
+      cursor: pointer; }
+
+.wrapper {
+  border-radius: 20px;
+  background-color: #2c3531; }
+
+.search {
+  background-color: #826953; }
+  .search__form {
+    display: flex;
+    justify-content: center;
+    background-color: #826953;
+    padding: 2em;
+    border-radius: 20px;
+    box-shadow: 5px 10px 8px #705a47;
+    margin-top: 2em; }
+    .search__form--heading {
+      font-size: 4em;
+      font-family: "Raleway", sans-serif;
+      color: #ffcb9a;
+      padding-right: 1em; }
+    .search__form--input {
+      font-size: 4em;
+      color: #2c3531;
+      font-family: "Shadows Into Light Two", cursive;
+      padding: 1em 1em;
+      border-radius: 20px;
+      border: solid 2px #2c3531;
+      outline: none;
+      background-color: #d9b08c;
+      box-shadow: inset 0px 0px 15px #2c3531; }
+    .search__form--button {
+      font-size: 4em;
+      font-family: "Raleway", sans-serif;
+      text-decoration: none;
+      padding: 0em 1em;
+      border-radius: 20px;
+      background-color: #116466;
+      color: #ffcb9a;
+      border: solid 2px #2c3531;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 5px 10px 8px #2c3531; }
+    .search__form--button:hover {
+      background-color: #ffcb9a;
+      color: #116466; }
+    .search__form--button:active {
+      background-color: #ffcb9a;
+      color: #116466;
+      transform: translateY(4px); }
+    .search__form--openmsg {
+      font-size: 4em;
+      font-family: "Raleway", sans-serif;
+      text-align: center;
+      color: #c1e8e2; }
+    .search__form--alert {
+      font-size: 4em;
+      font-family: "Raleway", sans-serif;
+      text-align: center;
+      color: #c75050; }
