@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-class Detail extends Component {
+class Saved extends Component {
     state = {
         books: [],
         title: "",
@@ -18,60 +16,19 @@ componentDidMount() {
 }
 
 
-
 loadBooks = () => {
     API.getBooks().then(res =>{
         this.setState({ books: res.data, title: ""})
         console.log(this.state.books)
-    }
-
-                                          )
+    }                                     )
         .catch(err => console.log(err));
 };
 
-deleteBook = id => {
-    API.deleteBook(id)
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
+deleteBook = (event,id) => {
+  API.deleteBook(id)
+      .then(res => {this.loadBooks()})
+      .catch(err => console.log(err));
 };
-
-handleFormSave = (event,book) => {
-    console.log(book);
-    API.saveBook({
-        title: book.volumeInfo.title,
-        author: book.volumeInfo.authors[0],
-        synosis: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks.smallThumbnail,
-        link: book.volumeInfo.previewLink,
-    })
-        .then(res => res)
-        .catch(err => console.log(err));
-}
-
-handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-        [name]: value
-    });
-};
-
-
-handleFormSubmit = event => {
-    event.preventDefault();
-    this.loadBooks(this.state.title);
-
-    if (this.state.title && this.state.author) {
-        API.saveBook({
-            title: this.state.title,
-            author: this.state.author,
-            synopsis: this.state.synopsis
-        })
-            .then(res => this.loadBooks())
-            .catch(err => console.log(err));
-    }
-};
-
-
 
 render() {
     return (
@@ -82,18 +39,15 @@ render() {
         <h1>React Google Book Search</h1>
         <h3> Search for and Save Books of Interest</h3>
         </Jumbotron>
-{this.state.books.length ? (
-    <List>                
-    {this.state.books.map(book => (
-     <ListItem key={book.id}>
-    <a href={book.link}>
-    <FormBtn              >
-    View
-    </FormBtn>
-    </a>
+         {this.state.books.length ? (
+          <List>                
+        {this.state.books.map(book => (
+      <ListItem key={book.id}>
+      <a href={book.link}>
+     </a>
            
     <FormBtn id={book.id} value={book.id}
-    onClick={() => this.deleteBook(book.id)}
+     onClick={((e) => this.deleteBook(e,book._id))}
     >
     Delete
     </FormBtn>          
@@ -126,5 +80,5 @@ render() {
 }
 }
 
-export default Detail;
+export default Saved;
 

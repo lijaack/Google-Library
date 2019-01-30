@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
@@ -10,7 +9,7 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 class Books extends Component {
     state = {
         books: [],
-        title: "Harry Potter",
+        title: "",
     };
 
 componentDidMount() {
@@ -27,14 +26,21 @@ loadBooks = () => {
         .catch(err => console.log(err));
 };
 
-deleteBook = id => {
-    API.deleteBook(id)
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
+deleteBook = book => {
+    this.setState({
+        books:   this.state.books.filter(item => { 
+        return item !== book
+        })
+    })
 };
 
-handleFormSave = (event,book) => {
+handleFormSave = (book) => {
     console.log(book);
+    this.setState({
+        books:   this.state.books.filter(item => { 
+        return item !== book
+        })
+    })
     API.saveBook({
         title: book.volumeInfo.title,
         author: book.volumeInfo.authors[0],
@@ -92,9 +98,9 @@ render() {
         />
         <FormBtn
         disabled={!(this.state.title)}
-onClick={this.handleFormSubmit}
+        onClick={this.handleFormSubmit}
 >
-    Submit Book
+        Submit Book
         </FormBtn>
 </form>
 </Jumbotron>
@@ -108,7 +114,8 @@ onClick={this.handleFormSubmit}
     </FormBtn>
     </a>
     <FormBtn id={book.id} value={book.id}
-    onClick={((e) => this.handleFormSave(e,book))}
+    // onClick={((e) => this.handleFormSave(e,book))}
+    onClick={(() => this.handleFormSave(book))}
     >
     Save
     </FormBtn>          
@@ -121,14 +128,14 @@ onClick={this.handleFormSubmit}
     </a>
     </div>                      
     <div className="row">
-    <img className="col-md-2" src={book.volumeInfo.imageLinks.smallThumbnail} >
+    <img className="col-md-2" alt={book.id} src={book.volumeInfo.imageLinks.smallThumbnail} >
     </img>
     <p className="col-md-10">
     {book.volumeInfo.description}
     </p>
     </div>
 
-    <DeleteBtn onClick={() => this.deleteBook(book.id)} />
+    <DeleteBtn onClick={() => this.deleteBook(book)} />
     </ListItem>
 ))}
     </List>
