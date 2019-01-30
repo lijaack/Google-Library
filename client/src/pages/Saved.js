@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
@@ -26,8 +24,7 @@ loadBooks = () => {
         .catch(err => console.log(err));
 };
 
-deleteBook = (event,id) => {
-  console.log("id to be deleted:"+id)
+deleteBook = (id) => {
   API.deleteBook(id)
       .then(res => {this.loadBooks()})
       .catch(err => console.log(err));
@@ -38,11 +35,10 @@ render() {
         <Container fluid>
         <Row>
         <Col size="md-12">
-        <div class="jt">
         <Jumbotron>
         <h1>React Google Book Search</h1>
         <h3> Search for and Save Books of Interest</h3>
-        </Jumbotron></ div> 
+        </Jumbotron>
          {this.state.books.length ? (
           <List>                
         {this.state.books.map(book => (
@@ -51,7 +47,7 @@ render() {
      </a>
            
     <FormBtn id={book.id} value={book.id}
-     onClick={((e) => this.deleteBook(e,book._id))}
+     onClick={(() => this.deleteBook(book._id))}
     >
     Delete
     </FormBtn>          
@@ -64,7 +60,7 @@ render() {
     </a>
     </div>                      
     <div className="row">
-    <img className="col-lg-2" src={book.image} >
+    <img className="col-md-2" src={book.image} >
     </img>
     <p className="col-md-10">
     {book.title}
@@ -85,3 +81,4 @@ render() {
 }
 
 export default Saved;
+
