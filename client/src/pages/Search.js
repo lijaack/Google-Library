@@ -31,7 +31,6 @@ deleteBook = book => {
 };
 
 handleFormSave = (book) => {
-    console.log(book);
     this.setState({
         books:   this.state.books.filter(item => { 
         return item !== book
