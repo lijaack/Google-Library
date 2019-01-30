@@ -27,14 +27,11 @@ class Books extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteBook = book => {
-    this.setState({
-        books:   this.state.books.filter(item => { 
-        return item !== book
-        })
-    })
-};
-
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+  };
 
   handleFormSave = (event, book) => {
     console.log(book);
@@ -133,7 +130,7 @@ class Books extends Component {
                       </p>
                     </div>
 
-                    <DeleteBtn onClick={() => this.deleteBook(book)} />
+                    <DeleteBtn onClick={() => this.deleteBook(book.id)} />
                   </ListItem>
                 ))}
               </List>
