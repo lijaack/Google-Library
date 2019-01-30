@@ -13,16 +13,12 @@ class Books extends Component {
     };
 
 componentDidMount() {
-    // this.loadBooks();
 }
 
 loadBooks = () => {
     API.searchBooks(this.state.title).then(res =>{
         this.setState({ books: res.data.items, title: ""})
-//        console.log(this.state.books)
-    }
-
-                                          )
+    })
         .catch(err => console.log(err));
 };
 
