@@ -2,20 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  googleId: { type: String, required: true },
-  title: { type: String, required: true },
-  author: { type: String, required: true },
-  description: String,
-  image: String,
-  link: String,
-  date: { type: Date, default: Date.now }
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    synopsis: String,
+    date: { type: Date, default: Date.now },
+    image: { type: String, required: false},
+    link: { type: String, required: true},
+    saved: {default: false}
 });
 
-bookSchema.index({
-  googleId: 1,
-}, {
-    unique: true,
-  });
 const Book = mongoose.model("Book", bookSchema);
 
 module.exports = Book;
