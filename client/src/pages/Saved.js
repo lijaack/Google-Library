@@ -24,7 +24,7 @@ loadBooks = () => {
         .catch(err => console.log(err));
 };
 
-deleteBook = (event,id) => {
+deleteBook = (id) => {
   API.deleteBook(id)
       .then(res => {this.loadBooks()})
       .catch(err => console.log(err));
@@ -47,7 +47,7 @@ render() {
      </a>
            
     <FormBtn id={book.id} value={book.id}
-     onClick={((e) => this.deleteBook(e,book._id))}
+     onClick={(() => this.deleteBook(book._id))}
     >
     Delete
     </FormBtn>          
