@@ -10,7 +10,7 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 class Books extends Component {
   state = {
     books: [],
-    title: "",
+    title: "Harry Potter",
   };
 
   componentDidMount() {
@@ -35,7 +35,8 @@ class Books extends Component {
     })
 };
 
-  handleFormSave = (book) => {
+
+  handleFormSave = (event, book) => {
     console.log(book);
     API.saveBook({
       title: book.volumeInfo.title,
@@ -112,7 +113,7 @@ class Books extends Component {
     </FormBtn>
                     </a>
                     <FormBtn id={book.id} value={book.id}
-                      onClick={((e) => this.handleFormSave(book))}
+                      onClick={((e) => this.handleFormSave(e, book))}
                     >
                       Save
     </FormBtn>
